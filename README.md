@@ -1,25 +1,24 @@
 # ⚔️ RPG Battle System
 
-Um mini sistema de batalha em Python desenvolvido para praticar Programação Orientada a Objetos (POO) de forma aplicada.
+A mini turn-based battle system built in Python to practice Object-Oriented Programming (OOP) concepts in a practical scenario.
 
-O projeto simula batalhas entre personagens com diferentes classes, atributos e comportamentos.
+The project simulates combat between characters with distinct classes, attributes, and behaviors.
 
 ---
 
-# 📸 Demonstração do Projeto
+# 📸 Project Demonstration
 
-## 🥊 Início da batalha
+## 🥊 Battle Start
 
-Coloque aqui um print mostrando o começo do combate:
+Combat initiation:
 
 <img width="305" height="122" alt="image" src="https://github.com/user-attachments/assets/b625cb8e-1609-4951-bc33-0668a7085ad2" />
 
-
 ---
 
-## ⚔️ Personagens atacando
+## ⚔️ Characters Attacking
 
-Coloque prints mostrando as interações entre os personagens:
+Character interactions and combat turns:
 
 <img width="259" height="118" alt="image" src="https://github.com/user-attachments/assets/ae76e035-9d44-4524-ae11-3b8272091e3e" />
 
@@ -29,142 +28,143 @@ Coloque prints mostrando as interações entre os personagens:
 
 ---
 
-## ☠️ Personagem derrotado
+## ☠️ Defeated Character
 
-Coloque um print mostrando quando um personagem perde toda a vida:
+When a character loses all their health points (HP):
 
 <img width="289" height="149" alt="image" src="https://github.com/user-attachments/assets/7387dbe4-7862-4481-81c2-ea07b6723f4c" />
 
-
 ---
 
-## 📊 Status final dos personagens
+## 📊 Final Character Status
 
-Coloque um print mostrando o resultado final da batalha:
+The final result of the battle:
 
 <img width="255" height="339" alt="image" src="https://github.com/user-attachments/assets/3d69146c-0e12-48b1-8906-b5fb298b1564" />
 
-
 ---
 
-# 🚀 Tecnologias utilizadas
+# 🚀 Technologies Used
 
 * Python 3
 
 ---
 
-# 📚 Conceitos de Programação Orientada a Objetos aplicados
+# 📚 Applied Object-Oriented Programming Concepts
 
-Este projeto foi desenvolvido para praticar conceitos importantes de POO.
+This project was developed to implement and reinforce fundamental OOP principles.
 
-## ✅ Classes e Objetos
+## ✅ Classes and Objects
 
-Cada personagem do jogo é uma classe derivada da classe principal `Personagem`.
+Each game character is instantiated from a specific class derived from the base `Character` class.
 
 ---
 
-## ✅ Encapsulamento
+## ✅ Encapsulation
 
-Os atributos dos personagens são protegidos utilizando convenções do Python:
+Character attributes are protected and encapsulated using Python standard naming conventions:
 
 ```python
-self._vida
-self._ataque
-self._nome
+self._health
+self._attack
+self._name
+
 ```
 
 ---
 
-## ✅ Herança
+## ✅ Inheritance
 
-As classes:
+The specific classes:
 
-* Guerreiro
-* Mago
-* Arqueiro
+* Warrior
+* Mage
+* Archer
 
-herdam atributos e comportamentos da classe principal `Personagem`.
+inherit core attributes and behaviors from the parent `Character` class.
 
 ---
 
-## ✅ Reutilização de código com `super()`
+## ✅ Code Reusability with `super()`
 
-As subclasses reutilizam a lógica da classe pai utilizando:
+Subclasses invoke and reuse the constructor logic of the parent class utilizing:
 
 ```python
 super().__init__()
+
 ```
 
 ---
 
-## ✅ Métodos
+## ✅ Methods
 
-Os personagens possuem comportamentos como:
+Characters possess dynamic behaviors implemented through methods, such as:
 
-* atacar
-* tomar dano
-* mostrar status
+* attack
+* take damage
+* display status
 
 ---
 
-## ✅ Interação entre objetos
+## ✅ Object Interaction
 
-Os personagens interagem entre si durante a batalha:
+Objects interact dynamically with each other during the execution of the combat loop:
 
 ```python
-guerreiro.atacar(mago)
+warrior.attack(mage)
+
 ```
 
 ---
 
-## ✅ Regras de negócio
+## ✅ Business Logic & Validation
 
-O sistema possui validações importantes:
+The system features robust conditional validation:
 
-* vida mínima igual a 0
-* personagens derrotados
-* bloqueio de ataques após derrota
-
----
-
-# 🎮 Personagens do jogo
-
-## 🛡️ Guerreiro
-
-* Vida: 150
-* Ataque: 20
-* Classe focada em resistência.
+* Minimum health capped at 0
+* Verification of defeated status
+* Restriction of actions for defeated characters
 
 ---
 
-## 🔮 Mago
+# 🎮 Game Characters
 
-* Vida: 120
-* Ataque: 40
-* Classe focada em dano mágico.
+## 🛡️ Warrior
 
----
-
-## 🏹 Arqueiro
-
-* Vida: 100
-* Ataque: 50
-* Classe focada em ataques rápidos e fortes.
+* Health: 150
+* Attack: 20
+* Class focused on high defense and durability.
 
 ---
 
-# ⚔️ Como funciona a batalha
+## 🔮 Mage
 
-A batalha acontece automaticamente utilizando estruturas de repetição.
+* Health: 120
+* Attack: 40
+* Class focused on high magical damage output.
 
-Enquanto houver mais de um personagem vivo:
+---
 
-* os personagens atacam
-* recebem dano
-* têm a vida atualizada
-* podem ser derrotados
+## 🏹 Archer
 
-Exemplo de saída do sistema:
+* Health: 100
+* Attack: 50
+* Class focused on swift and high-impact physical strikes.
+
+---
+
+# ⚔️ How the Battle Works
+
+The simulation runs automatically driven by control flow loops.
+
+As long as there are multiple characters standing:
+
+* Characters perform attacks
+* Damage is calculated and applied
+* Health status is dynamically updated
+* Defeated characters are filtered out
+
+System output example:
 
 ```text
 Thorin atacou Merlin!
@@ -172,20 +172,23 @@ Merlin recebeu 20 de dano!
 Vida atual de Merlin: 100
 
 ================================
+
 ```
 
 ---
 
-# 📂 Estrutura do projeto
+# 📂 Project Structure
 
 ```text
 📦 rpg-battle-system
  ┣ 📜 main.py
  ┗ 📜 README.md
+
 ```
 
 ---
 
-# 👩‍💻 Desenvolvido por
+# 👩‍💻 Developed by
 
 [Ana Caroline Vasconcellos](https://github.com/Vasconcellos-cipher) 🚀
+
