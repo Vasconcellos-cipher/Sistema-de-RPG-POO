@@ -196,9 +196,9 @@ During combat:
 Example output:
 
 ```text
-Thorin used HEAVY SWORD on Merlin!
-Merlin received 20 damage!
-Current health of Merlin: 100
+Thorin usou ESPADA PESADA em Merlin!
+Merlin recebeu 20 de dano!
+Vida atual de Merlin: 100
 
 ================================
 ```
