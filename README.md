@@ -1,8 +1,8 @@
 # ⚔️ RPG Battle System
 
-A mini turn-based battle system built in Python to practice Object-Oriented Programming (OOP) concepts in a practical scenario.
+A turn-based battle system built in Python to practice advanced Object-Oriented Programming (OOP) concepts in a practical and interactive scenario.
 
-The project simulates combat between characters with distinct classes, attributes, and behaviors.
+The project simulates battles between characters with unique classes, attributes, combat styles, and polymorphic behaviors.
 
 ---
 
@@ -10,7 +10,7 @@ The project simulates combat between characters with distinct classes, attribute
 
 ## 🥊 Battle Start
 
-Combat initiation:
+Combat initialization:
 
 <img width="305" height="122" alt="image" src="https://github.com/user-attachments/assets/b625cb8e-1609-4951-bc33-0668a7085ad2" />
 
@@ -18,7 +18,7 @@ Combat initiation:
 
 ## ⚔️ Characters Attacking
 
-Character interactions and combat turns:
+Polymorphic combat interactions between characters:
 
 <img width="259" height="118" alt="image" src="https://github.com/user-attachments/assets/ae76e035-9d44-4524-ae11-3b8272091e3e" />
 
@@ -30,7 +30,7 @@ Character interactions and combat turns:
 
 ## ☠️ Defeated Character
 
-When a character loses all their health points (HP):
+Character defeat handling and health validation:
 
 <img width="289" height="149" alt="image" src="https://github.com/user-attachments/assets/7387dbe4-7862-4481-81c2-ea07b6723f4c" />
 
@@ -38,7 +38,7 @@ When a character loses all their health points (HP):
 
 ## 📊 Final Character Status
 
-The final result of the battle:
+Final battle results and remaining stats:
 
 <img width="255" height="339" alt="image" src="https://github.com/user-attachments/assets/3d69146c-0e12-48b1-8906-b5fb298b1564" />
 
@@ -52,127 +52,155 @@ The final result of the battle:
 
 # 📚 Applied Object-Oriented Programming Concepts
 
-This project was developed to implement and reinforce fundamental OOP principles.
+This project was designed to reinforce software engineering and OOP principles through a game-oriented architecture.
+
+---
 
 ## ✅ Classes and Objects
 
-Each game character is instantiated from a specific class derived from the base `Character` class.
+Each character is instantiated from a dedicated class derived from the base `Personagem` class.
 
 ---
 
 ## ✅ Encapsulation
 
-Character attributes are protected and encapsulated using Python standard naming conventions:
+Protected attributes are used to preserve internal object state and improve data integrity.
 
 ```python
-self._health
-self._attack
-self._name
-
+self._nome
+self._vida
+self._ataque
 ```
 
 ---
 
 ## ✅ Inheritance
 
-The specific classes:
+The specialized classes:
 
-* Warrior
-* Mage
-* Archer
+* `Guerreiro`
+* `Mago`
+* `Arqueiro`
 
-inherit core attributes and behaviors from the parent `Character` class.
-
----
-
-## ✅ Code Reusability with `super()`
-
-Subclasses invoke and reuse the constructor logic of the parent class utilizing:
+inherit common behaviors and attributes from the parent class.
 
 ```python
-super().__init__()
-
+class Guerreiro(Personagem)
 ```
 
 ---
 
-## ✅ Methods
+## ✅ Polymorphism
 
-Characters possess dynamic behaviors implemented through methods, such as:
+One of the core concepts implemented in the project.
 
-* attack
-* take damage
-* display status
+Each subclass overrides the `atacar()` method with its own combat style:
+
+* Warrior → heavy sword attack
+* Mage → fireball spell
+* Archer → critical arrow shot
+
+Although every object uses the same method name:
+
+```python
+personagem.atacar(alvo)
+```
+
+each class executes the action differently.
+
+---
+
+## ✅ Method Overriding
+
+The attack behavior is redefined inside each subclass:
+
+```python
+def atacar(self, alvo):
+```
+
+This allows each character type to have unique combat interactions.
 
 ---
 
 ## ✅ Object Interaction
 
-Objects interact dynamically with each other during the execution of the combat loop:
+Objects dynamically communicate with each other during battle execution:
 
 ```python
-warrior.attack(mage)
-
+guerreiro.atacar(mago)
 ```
+
+The attacker interacts directly with another object instance.
+
+---
+
+## ✅ State Management
+
+Characters maintain internal mutable state:
+
+* current health
+* attack value
+* defeat status
+
+Health is dynamically updated throughout combat.
 
 ---
 
 ## ✅ Business Logic & Validation
 
-The system features robust conditional validation:
+The system contains several gameplay validations:
 
-* Minimum health capped at 0
-* Verification of defeated status
-* Restriction of actions for defeated characters
+* health cannot go below 0
+* defeated characters cannot attack
+* battle loop ends when only one fighter remains
 
 ---
 
-# 🎮 Game Characters
+# 🎮 Character Classes
 
-## 🛡️ Warrior
+## 🛡️ Guerreiro (Warrior)
 
 * Health: 150
 * Attack: 20
-* Class focused on high defense and durability.
+* Durable melee fighter with heavy attacks.
 
 ---
 
-## 🔮 Mage
+## 🔮 Mago (Mage)
 
 * Health: 120
 * Attack: 40
-* Class focused on high magical damage output.
+* High magical damage dealer.
 
 ---
 
-## 🏹 Archer
+## 🏹 Arqueiro (Archer)
 
 * Health: 100
 * Attack: 50
-* Class focused on swift and high-impact physical strikes.
+* Agile ranged attacker with critical strikes.
 
 ---
 
-# ⚔️ How the Battle Works
+# ⚔️ Battle System
 
-The simulation runs automatically driven by control flow loops.
+The battle is executed automatically using loops and conditional logic.
 
-As long as there are multiple characters standing:
+During combat:
 
-* Characters perform attacks
-* Damage is calculated and applied
-* Health status is dynamically updated
-* Defeated characters are filtered out
+* characters attack one another
+* damage is applied
+* health is updated in real time
+* defeated characters are removed from active combat
 
-System output example:
+Example output:
 
 ```text
-Thorin atacou Merlin!
-Merlin recebeu 20 de dano!
-Vida atual de Merlin: 100
+Thorin used HEAVY SWORD on Merlin!
+Merlin received 20 damage!
+Current health of Merlin: 100
 
 ================================
-
 ```
 
 ---
@@ -183,12 +211,41 @@ Vida atual de Merlin: 100
 📦 rpg-battle-system
  ┣ 📜 main.py
  ┗ 📜 README.md
-
 ```
+
+---
+
+# 💡 Skills Demonstrated
+
+This project demonstrates practical knowledge of:
+
+* Object-Oriented Programming
+* System Modeling
+* Inheritance
+* Encapsulation
+* Polymorphism
+* Method Overriding
+* State Management
+* Battle Logic
+* Object Interaction
+* Python Programming
+
+---
+
+# 🔥 Possible Future Improvements
+
+* Special abilities
+* Mana system
+* Inventory system
+* Experience (XP)
+* Level progression
+* Boss battles
+* Save system
+* Graphical interface
+* Multiplayer combat
 
 ---
 
 # 👩‍💻 Developed by
 
 [Ana Caroline Vasconcellos](https://github.com/Vasconcellos-cipher) 🚀
-
